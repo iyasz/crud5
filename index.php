@@ -116,7 +116,7 @@ if (isset($_POST['delete'])) {
                                         <td><?= $selects['asal_sekolah'] ?></td>
                                         <td><?= $selects['alamat'] ?></td>
                                         <td class=" gap-1 d-flex justify-content-center">
-                                            <a href="" class="btn btn-primary btn-sm">Edit</a>
+                                            <a href="edit.php?id=<?= $selects['id'] ?>" class="btn btn-primary btn-sm">Edit</a>
                                             <form action="" method="post">
                                                 <input type="hidden" name="id" value="<?= $selects['id'] ?>">
                                                 <button class="btn btn-danger btn-sm" name="delete">Delete</button>
