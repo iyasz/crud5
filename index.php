@@ -12,6 +12,13 @@ if (isset($_POST['submit'])) {
     if (empty($nama) or empty($nis) or empty($telepon) or empty($sekolah) or empty($alamat)) {
         echo '<script>alert("Masukan Data dengan lengkap")
                     location.replace("index.php")</script>';
+    } else {
+        $simpan = $conn->query("INSERT INTO siswa VALUES(NULL, '$nama', '$nis', '$telepon', '$sekolah', '$alamat')");
+
+        if ($simpan == TRUE) {
+            echo '<script>alert("Data Telah Tersimpan!")
+                    location.replace("index.php")</script>';
+        }
     }
 }
 
