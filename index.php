@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
 if (isset($_POST['delete'])) {
     $id = $_POST['id'];
 
-    $delete = $conn->query("DELETE * FROM siswa WHERE id = '$id'");
+    $delete = $conn->query("DELETE FROM siswa WHERE id = '$id'");
     if ($delete == TRUE) {
         echo '<script>alert("Data Telah Teerhapus!")
                     location.replace("index.php")</script>';
@@ -107,7 +107,7 @@ if (isset($_POST['delete'])) {
                             </thead>
                             <tbody>
                                 <?php $no = 1;
-                                foreach ($select as $selects); { ?>
+                                foreach ($select as $selects) { ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
                                         <td><?= $selects['nama'] ?></td>
