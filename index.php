@@ -1,3 +1,22 @@
+<?php
+
+$conn = mysqli_connect('localhost', 'root', '', 'crud');
+
+if (isset($_POST['submit'])) {
+    $nama = htmlspecialchars($_POST['nama']);
+    $nis = htmlspecialchars($_POST['nis']);
+    $telepon = htmlspecialchars($_POST['telepon']);
+    $sekolah = htmlspecialchars($_POST['sekolah']);
+    $alamat = htmlspecialchars($_POST['alamat']);
+
+    if (empty($nama) or empty($nis) or empty($telepon) or empty($sekolah) or empty($alamat)) {
+        echo '<script>alert("Masukan Data dengan lengkap")
+                    location.replace("index.php")</script>';
+    }
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
 
