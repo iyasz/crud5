@@ -2,6 +2,8 @@
 
 $conn = mysqli_connect('localhost', 'root', '', 'crud');
 
+$select = $conn->query("SELECT * FROM siswa");
+
 if (isset($_POST['submit'])) {
     $nama = htmlspecialchars($_POST['nama']);
     $nis = htmlspecialchars($_POST['nis']);
@@ -90,17 +92,28 @@ if (isset($_POST['submit'])) {
                                     <th>No Telp</th>
                                     <th>Asal Sekolah</th>
                                     <th>Alamat</th>
+                                    <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+                                <?php $no = 1;
+                                foreach ($select as $selects); { ?>
+                                    <tr>
+                                        <td><?= $no++ ?></td>
+                                        <td><?= $selects['nama'] ?></td>
+                                        <td><?= $selects['nis'] ?></td>
+                                        <td><?= $selects['telepon'] ?></td>
+                                        <td><?= $selects['asal_sekolah'] ?></td>
+                                        <td><?= $selects['alamat'] ?></td>
+                                        <td class=" gap-1 d-flex justify-content-center">
+                                            <a href="" class="btn btn-primary btn-sm">Edit</a>
+                                            <form action="" method="post">
+                                                <input type="hidden" name="id" value="<?= $selects['id'] ?>">
+                                                <button class="btn btn-danger btn-sm" name="delete">Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>
